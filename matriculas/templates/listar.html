@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Titulo da página</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Data de Nascimento</th>
+                <th>Email</th>
+                <th>Cidade</th>
+                <th>Curso</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for aluno in alunos %}
+                <tr>
+                    <td>{{ aluno.nome }}</td>
+                    <td>{{ aluno.data_de_nascimento }}</td>
+                    <td>{{ aluno.email }}</td>
+                    <td>{{ aluno.cidade.nome }}</td>
+                    <td>{{ aluno.cursos.nome }}</td>
+                    <td>
+                        <!-- Adicione links de ações aqui, por exemplo: -->
+                        <a href="#">Visualizar</a> |
+                        <a href="#">Editar</a> |
+                        <a href="#">Excluir</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+</body>
+</html>
