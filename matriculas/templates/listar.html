@@ -9,6 +9,12 @@
     <title>Titulo da página</title>
 </head>
 <body>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar</button>
+    </form>
+
     <table>
         <thead>
             <tr>
@@ -29,7 +35,6 @@
                     <td>{{ aluno.cidade.nome }}</td>
                     <td>{{ aluno.cursos.nome }}</td>
                     <td>
-                        <!-- Adicione links de ações aqui, por exemplo: -->
                         <a href="#">Visualizar</a> |
                         <a href="#">Editar</a> |
                         <a href="#">Excluir</a>
